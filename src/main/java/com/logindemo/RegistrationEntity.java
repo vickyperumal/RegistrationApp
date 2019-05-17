@@ -17,8 +17,11 @@ public class RegistrationEntity {
 	private String firstname;
 	@Column
 	private String lastname;
+	
 	@Column
-	private String age;
+	private String email;
+	@Column
+	private String password;
 	public Long getId() {
 		return id;
 	}
@@ -37,17 +40,25 @@ public class RegistrationEntity {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-	public String getAge() {
-		return age;
+	public String getEmail() {
+		return email;
 	}
-	public void setAge(String age) {
-		this.age = age;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	@Override
 	public String toString() {
-		return "EntityClass [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", age=" + age
-				+ "]";
+		return "RegistrationEntity [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email="
+				+ email + ", password=" + password + "]";
 	}
+
+	
 	
 
 }
