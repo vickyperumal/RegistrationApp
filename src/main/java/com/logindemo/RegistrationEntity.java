@@ -1,6 +1,7 @@
 package com.logindemo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +11,7 @@ public class RegistrationEntity {
 	
 	@Id
 	@Column
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column
 	private String firstname;

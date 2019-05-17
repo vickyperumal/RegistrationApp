@@ -23,6 +23,7 @@ public class RegistrationController {
 
 	@GetMapping("/user")
 	public List<RegistrationEntity> getAllNotes() {
+		
 		List<RegistrationEntity> registrationList=(List<RegistrationEntity>) repo.findAll();
 		LOGGER.info(registrationList.toString());
 		return registrationList;
@@ -30,7 +31,10 @@ public class RegistrationController {
 
 	@PostMapping("/adduser")
 	public RegistrationEntity createNote(@Valid @RequestBody RegistrationEntity entityclass) {
-		return repo.save(entityclass);
+		RegistrationEntity saveEntry=repo.save(entityclass);
+		LOGGER.info(saveEntry.toString());
+
+		return saveEntry ;
 	}
 
 	@GetMapping("/user/{id}")
@@ -46,7 +50,6 @@ public class RegistrationController {
 
 			if (!studentOptional.isPresent())
 			return ResponseEntity.notFound().build();
-			//EntityClass.setId(id);
 			repo.save(entityClass);
 			return ResponseEntity.noContent().build();
 		}
